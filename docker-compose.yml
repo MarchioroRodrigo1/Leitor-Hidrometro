@@ -1,0 +1,41 @@
+services:
+  # Banco de Dados MySQL (MariaDB) para salvar as leituras
+  mysql-db:
+    image: mariadb:latest
+    container_name: hidrometro_db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=quimica
+      - MYSQL_DATABASE=consumo_agua
+      - MYSQL_USER=seu_usuario
+      - MYSQL_PASSWORD=sua_senha
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    command: --default-time-zone='system'
+    networks:
+      - rede_hidrometro
+
+  # Criador de Dashboards e Gráficos
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: hidrometro_grafana
+    restart: unless-stopped
+    user: "0" 
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+    networks:
+      - rede_hidrometro
+
+networks:
+  rede_hidrometro:
+    driver: bridge
+

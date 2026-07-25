@@ -1,0 +1,10 @@
+# Ignorar os dados privados dos containers (onde ficam as senhas salvas do Grafana e Banco)
+db_data/
+grafana_data/
+
+# Ignorar as fotos do seu hidrômetro e histórico
+fotos_recebidas/
+
+# Ignorar arquivos temporários do Python
+__pycache__/
+*.pyc
