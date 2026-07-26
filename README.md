@@ -37,6 +37,13 @@ sudo apt update && sudo apt install -y python3-pip ca-certificates curl gnupg
 # Instalar as bibliotecas Python necessárias para o ecossistema
 pip install pyTelegramBotAPI google-genai groq mysql-connector-python watchdog pydantic --break-system-packages
 
+# Garantir que o gerenciador de pacotes do Python (Pip) está instalado no sistema
+sudo apt update && sudo apt install -y python3-pip
+
+# Instalar todas as bibliotecas requeridas pelo projeto de uma só vez
+pip install pyTelegramBotAPI groq mysql-connector-python watchdog pydantic --break-system-packages
+
+Eles servem para instalar:pyTelegramBotAPI: Para criar e controlar o Bot do Telegram.groq: Para fazer a chamada ultra-rápida do modelo Llama/Qwen de visão na nuvem.mysql-connector-python: Para fazer a ponte de gravação direta na tabela do MariaDB.watchdog: Para monitorar a pasta de fotos em segundo plano.pydantic: Para garantir que a IA responda exatamente a estrutura de dados numéricos solicitada.
 
 ### 2. Inicialização dos Containers (Docker Compose)
 Crie o arquivo `docker-compose.yml` e suba o banco de dados e o Grafana em segundo plano:

@@ -19,8 +19,8 @@ GROQ_API_KEY = "SEU_TOKEN_AQUI"
 
 DB_CONFIG = {
     'host': '127.0.0.1',
-    'user': 'seu_usuario',
-    'password': 'sua_senha',
+    'user': 'seu usuario',
+    'password': 'sua senha',
     'database': 'consumo_agua',
     'port': 3306,
     'ssl_disabled': True,
@@ -47,7 +47,7 @@ def chamar_gemini_ia(caminho_foto):
     prompt = "Analise a imagem deste hidrômetro residencial e extraia o número registrado no visor central (números pretos e vermelhos sequenciais juntos)."
     
     resposta = client_gemini.models.generate_content(
-        model='gemini-3.5-flash',
+        model='gemini-3.5-flash', #pode mudar ao longo do tempo em 26/07/2026 está funcionando.
         contents=[imagem_part, prompt],
         config=types.GenerateContentConfig(
             response_mime_type="application/json",

@@ -7,10 +7,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=quimica
+      - MYSQL_ROOT_PASSWORD=sua senha
       - MYSQL_DATABASE=consumo_agua
-      - MYSQL_USER=seu_usuario
-      - MYSQL_PASSWORD=sua_senha
+      - MYSQL_USER=seu usuario
+      - MYSQL_PASSWORD=sua senha
       - TZ=America/Sao_Paulo
     volumes:
       - ./db_data:/var/lib/mysql
